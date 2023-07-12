@@ -1,0 +1,102 @@
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: tomato;
+   align-items: center;
+}
+.logoImg {
+    width: 200px;
+    height: 150px;
+    
+}
+
+.navItems > ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+   
+    
+}
+.navItems > ul> li {
+    padding:  0 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+}
+.navItems > ul>li:hover{
+    color: grey
+}
+
+.res-card{
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 60px;
+    cursor: pointer;
+  overflow: hidden;
+  transition: 1s;
+}
+.res-card:hover{
+    transform: scale(1.1);
+    z-index: 2; 
+}
+.search{
+   margin-left: 600px;
+   border-radius : 50px;
+   margin-top: 20px;
+   
+}
+.search :focus{
+    outline: none;
+}
+.searchInput{
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 30%;
+}
+.searchBtn{
+    border-radius: 10px;
+    background-color: tomato;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+  
+}
+.resImg{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.res-card > span{
+    display: flex;
+    justify-content: space-evenly;
+}
+.res-card > span > h4{
+    text-align: center;
+}
+.res-card > span > h4:first-child{
+    display: flex;
+    align-items: center;
+    background-color: rgb(19, 176, 1);
+    border-radius: 5px;
+    padding: 0 5px 0;
+    color: white;
+}
+.res-card > span > h4:first-child .fa-star{
+    font-size: small;
+    padding: 0 5px 3px 0;
+}
+.res-card > span > h4{
+    text-align: center;
+}
+
