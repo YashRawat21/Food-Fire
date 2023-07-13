@@ -1,6 +1,6 @@
  import "./styles.css";
 import Header from "./components/Header";
-
+import Body from "./components/Body";
 
 const restaurantList = [
   {
@@ -1840,23 +1840,7 @@ const RestraurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMil
     </div>
   )
 }
-const Body = () => {
-  return(
-    <div className = "body">
-     <div className = "search">
-      <input type = "search" className = "searchInput"></input>
-     <button className = "searchBtn">Submit</button>
-     </div>
-     <div className = "res-container">
-       {
-        restaurantList.map((restaurant) => <RestraurantCard key = {restaurant.data.id} {...restaurant.data} />)
-        //2nd method to map and pass data dynamically
-        // restaurantList.map((restaurant) => <RestraurantCard resData = {restaurant} />)
-       }
-     </div>
-    </div>
-  )
-}
+
 
  
 function App() {
