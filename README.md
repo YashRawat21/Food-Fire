@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +67,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+
+# Two types of Export/Import
+
+- Default Export/Import
+
+export default Component;
+import Component from "path"
+
+
+- Named Export/Import
+
+export const Component;
+import {Component} from "path";
+
+# React Hooks
+- useState() -> superpowerful state variable in react.
+- useEffect() 
+
+- we have to import useState as named Import.
+- useState helps to maintain the state of component.
+- whenever the state variable update , react re-render the component. 
