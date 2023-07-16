@@ -89,3 +89,11 @@ import {Component} from "path";
 - we have to import useState as named Import.
 - useState helps to maintain the state of component.
 - whenever the state variable update , react re-render the component. 
+
+# Shimmer UI
+- basically we load a fake page until we get data from API.
+- if we want to various shimmer ui cards then;
+- Array.from({length:15}).map((el) => return {
+    <div classname = "shimmer-card"></div>
+})
+- above array.from method will create a array of length 15 and will return 15 simmer card;

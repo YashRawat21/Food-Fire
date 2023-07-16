@@ -1,10 +1,23 @@
 import RestraurantCard from "./RestaurantCard";
-import { restaurantList } from "./utils/constants";
-import {useState} from "react"
-
+import { SWIGGY_API } from "./utils/constants";
+import {useEffect, useState} from "react"
+import Shimmer from "./Shimmer";
 const Body = () => {
-  const [listOfRestaurant, setListOfRestaurant] = useState(restaurantList);
-    return(
+  const [listOfRestaurant, setListOfRestaurant] = useState([]);
+  
+
+  
+  useEffect(() => {
+    fetchData()
+  },[]);
+  const fetchData = async() => {
+    const data = await fetch(SWIGGY_API)
+    const json = await data.json();
+    console.log(json);
+    setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
+  }
+      
+    return listOfRestaurant.length === 0 ? <Shimmer /> :(
       <div className = "body">
        <div className = "search">
         <input type = "search" className = "searchInput"></input>
