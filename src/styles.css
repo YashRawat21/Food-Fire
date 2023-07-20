@@ -67,18 +67,25 @@
     cursor: pointer;
     margin-right: 90px;
 }
+.sort-text{
+    font-size: 20px;
+}
 .resImg{
     width: 100%;
     border-radius: 10px;
 }
 
 .res-container{
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 40px; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 40px;
 }
 .res-card{
-    margin-left: auto
+    margin-left: auto;
+    max-height: 460px;
 }
 .res-card > span{
     display: flex;

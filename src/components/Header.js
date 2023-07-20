@@ -1,4 +1,7 @@
+import {useState} from "react"
+
 const Header = () => {
+  const [loginBtn , setLoginBtn] = useState("login")
     return(
       <div className="header">
         <div className = "logo-container">
@@ -11,8 +14,11 @@ const Header = () => {
             <li>About Us</li>
             <li>Contact Us</li>
             <li> Cart</li>
-          </ul>
+            <li onClick={() => {loginBtn === "login" ? setLoginBtn("logout") : setLoginBtn("login")}}>{loginBtn}</li>
+           {/* <button className = "login-btn"onClick = {() => { loginBtn === "login" ? setLoginBtn("logout") : setLoginBtn("login")}}>{loginBtn}</button> */}
+           </ul>
         </div>
+        
       </div>
     )
   }
