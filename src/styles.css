@@ -131,3 +131,14 @@
     background-color: #f0f0f0;
    margin-left: auto;
 }
+.errImg{
+    width: 70%;
+    margin-left: 200px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+.errMsg{
+    text-align: center;
+    color: tomato;
+    cursor: pointer;
+}
