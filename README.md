@@ -97,3 +97,15 @@ import {Component} from "path";
     <div classname = "shimmer-card"></div>
 })
 - above array.from method will create a array of length 15 and will return 15 simmer card;
+
+# Routing in Web App 
+- There are two types of Routing in Web App 
+- Client Side Routing
+- Server Side Side Routing 
+
+- Server Side Routing -> is that when we made a network call and that page u have called is coming from server.
+
+- Client Side Routing -> is that when we don't make a network call.
+
+# React is a single page application 
+- React is a single page application becoz it's just one page and component just get interchanged via Client Side Routing.
