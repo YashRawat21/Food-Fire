@@ -1,6 +1,7 @@
 import RestraurantCard from "./RestaurantCard";
 import { SWIGGY_API } from "./utils/constants";
 import {useEffect, useState} from "react"
+import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]); //while filtering we need this listOfRestraurant. listOfRestrasurant contains copy of all the restraurant. we r never modifying this list of restraurant.this remaoins intact .
@@ -14,7 +15,6 @@ const Body = () => {
   const fetchData = async() => {
     const data = await fetch(SWIGGY_API)
     const json = await data.json();
-    console.log(json);
     setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
     setFilterRestraurant(json?.data?.cards[2]?.data?.data?.cards)
   }
@@ -46,7 +46,8 @@ const Body = () => {
        </div>
        <div className = "res-container">
          {
-         filteredRestraurant.map((restaurant) => <RestraurantCard key = {restaurant.data.id} {...restaurant.data} />)
+         filteredRestraurant.map((restaurant) =>
+         <Link  key = {restaurant.data.id}  to={"/restaurants/" + restaurant.data.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.data} /> </Link>)
           //2nd method to map and pass data dynamically
           // restaurantList.map((restaurant) => <RestraurantCard resData = {restaurant} />)
          }

@@ -14,8 +14,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-//not using Keys(not acceptable) <<<<<index as keys <<<<<<<<<<  unique ID

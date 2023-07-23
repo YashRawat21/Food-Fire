@@ -85,12 +85,15 @@
 }
 .res-card{
     margin-left: auto;
-    max-height: 460px;
+   max-height: 460px; 
+    
 }
+
 .res-card > span{
     display: flex;
     justify-content: space-evenly;
 }
+
 .res-card > span > h4{
     text-align: center;
 }
@@ -178,4 +181,27 @@
 .desc{
     color: #aaa;
     /* font-size:px; */
+}
+.menu-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+hr{
+    width: 70%;
+}
+.avg-rating{
+    /* border: 1px solid black;  */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+     background-color: rgb(19, 176, 1);
+     border-radius: 5px;
+     padding: 0 5px 0;
+     color: white;
+}
+.left-info{
+    color: #aaa;
 }

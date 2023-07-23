@@ -7,7 +7,7 @@ const Header = () => {
     return(
       <div className="header">
         <div className = "logo-container">
-        <img src = "Food Fire Logo.png"  className="logoImg"/>
+        <img src = "FoodFire.png"  className="logoImg" alt="logoImg"/>
         </div>
       
         <div className="navItems">
