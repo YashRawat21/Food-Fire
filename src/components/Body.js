@@ -3,6 +3,7 @@ import { SWIGGY_API } from "./utils/constants";
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "./useOnlineStatus";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]); //while filtering we need this listOfRestraurant. listOfRestrasurant contains copy of all the restraurant. we r never modifying this list of restraurant.this remaoins intact .
    const [filteredRestraurant , setFilterRestraurant] = useState([]); //List only for filtered restraurant ..so whenerver u wanna filter u should update FilterRestraurant instead of listORestraurant.
@@ -15,9 +16,13 @@ const Body = () => {
   const fetchData = async() => {
     const data = await fetch(SWIGGY_API)
     const json = await data.json();
-    setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards)
-    setFilterRestraurant(json?.data?.cards[2]?.data?.data?.cards)
-  }
+    setListOfRestaurant( json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilterRestraurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }   
+  const onlineStatus = useOnlineStatus();
+     if(onlineStatus === false) return <h1 style={{textAlign: "center" , color:"tomato",marginTop: "20px"} }>
+      please check your internet connection!!
+     </h1> 
       
     return listOfRestaurant.length === 0 ? <Shimmer /> :(
       <div className = "body">
@@ -25,17 +30,14 @@ const Body = () => {
         <input type = "search" className = "searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
         <button className = "searchBtn" onClick={() => {
           const searchFilter = listOfRestaurant.filter((res) => 
-    
-           
-           res.data.name.toLowerCase().includes(searchText.toLowerCase()) 
-        
+           res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
            )
            setFilterRestraurant(searchFilter) 
         }}>Submit</button>
        <i className="sort-text">Sort By:</i>
        
        <button className = "filterBtn" onClick = {() => {
-       const  filteredList = listOfRestaurant.filter((res) => res.data.avgRating > 4);
+       const  filteredList = listOfRestaurant.filter((res) => res.info.avgRating > 4);
      setFilterRestraurant(filteredList)
       
        }}>Top Rated Restaurant</button>
@@ -47,7 +49,7 @@ const Body = () => {
        <div className = "res-container">
          {
          filteredRestraurant.map((restaurant) =>
-         <Link  key = {restaurant.data.id}  to={"/restaurants/" + restaurant.data.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.data} /> </Link>)
+         <Link  key = {restaurant.info.id}  to={"/restaurants/" + restaurant.info.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.info} /> </Link>)
           //2nd method to map and pass data dynamically
           // restaurantList.map((restaurant) => <RestraurantCard resData = {restaurant} />)
          }

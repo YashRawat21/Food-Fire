@@ -16,3 +16,38 @@ const About = () => {
     )
 }
 export default About;
+
+// import User from "./User";
+// import UserClass from "./UserClass"
+// const About = () => {
+//   return(
+
+//   <div className="about-container">
+//         <User name = {"Yash Rawat (functional Comp.)"}/>
+          
+//         <UserClass name ={"Yash Rawat (class)"} location = {"Delhi"} />
+//     </div>
+//   )  
+// }
+// export default About;
+
+// import React from "react";
+// import User from "./User";
+// import UserClass from "./UserClass";
+// class About extends React.Component{
+//        constructor(props){
+
+//            super(props)
+//        }
+//     render() {
+//         return(
+    
+//               <div className="about-container">
+//                     <User />
+                      
+//                     <UserClass name ={"Yash Rawat (class)"} location = {"Delhi"} />
+//                 </div>
+//         )
+//     }
+// }
+// export default About;

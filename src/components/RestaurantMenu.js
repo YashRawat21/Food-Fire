@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Shimmer from './Shimmer';
 import GradeIcon from '@mui/icons-material/Grade';
+// import {SWIGGY_MENU_API} from './utils/constants';
+// import useRestaurantMenu from './utils/useRestaurantMenu';
+// import useRestaurantMenu from './utils/useRestaurantMenu';
 import {useParams} from 'react-router-dom';
-import {SWIGGY_MENU_API} from './utils/constants';
-const RestaurantMenu = () => {
-    const [resInfo , setResInfo] = useState(null);
-     const {resId} = useParams();
-     
-    const fetchMenu = async() => {
-        const data = await fetch(SWIGGY_MENU_API + resId)
-        const json = await data.json();
-        setResInfo(json.data);
-    }
-    useEffect(() => {
-        fetchMenu();
-    },[])
+import useRestaurantMenu from './useRestaurantMenu';
 
+const RestaurantMenu = () => {
+     const {resId} = useParams();
+     const resInfo  = useRestaurantMenu(resId)
+    
     if(resInfo === null) return <Shimmer />
     const {name,cuisines,costForTwoMessage,avgRating} = resInfo?.cards[0]?.card?.card?.info;
     const {itemCards} =  resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;

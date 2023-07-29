@@ -39,3 +39,5 @@ import {Component} from "path";
 
 # React is a single page application 
 - React is a single page application becoz it's just one page and component just get interchanged via Client Side Routing.
+
+# User and UserClass components are made just to understand functional and class based components.
