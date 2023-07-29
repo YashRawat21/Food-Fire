@@ -2,7 +2,7 @@ import { useRouteError } from "react-router-dom";
 
 const Error = () => {
     const errInfo = useRouteError();
- 
+      
     return(
         <div className="err">
             <img src = "401-error.jpg" alt = "" className="errImg"/>
