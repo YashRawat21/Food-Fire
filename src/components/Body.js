@@ -1,4 +1,4 @@
-import RestraurantCard from "./RestaurantCard";
+import RestraurantCard , {withPromotedLabel}from "./RestaurantCard";
 import { SWIGGY_API } from "./utils/constants";
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom";
@@ -7,9 +7,12 @@ import useOnlineStatus from "./useOnlineStatus";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]); //while filtering we need this listOfRestraurant. listOfRestrasurant contains copy of all the restraurant. we r never modifying this list of restraurant.this remaoins intact .
    const [filteredRestraurant , setFilterRestraurant] = useState([]); //List only for filtered restraurant ..so whenerver u wanna filter u should update FilterRestraurant instead of listORestraurant.
-  const [searchText , setSearchText] = useState(" ")
-   
   
+   const [searchText , setSearchText] = useState(" ")
+
+  //  const RestaurantCardPromoted = withPromotedLabel(RestraurantCard); // now this RestaurantcardPromoted component has promoted label inside it.
+
+
   useEffect(() => {
     fetchData()
   },[]);
@@ -41,18 +44,22 @@ const Body = () => {
      setFilterRestraurant(filteredList)
       
        }}>Top Rated Restaurant</button>
-       {/* <button className="filterBtn" onClick={() => {
-        const highToLow = listOfRestaurant.filter(())
-       }}> {filterByPrice}</button>
-        */}
+    
        </div>
        <div className = "res-container flex flex-wrap">
+        
          {
-         filteredRestraurant.map((restaurant) =>
-         <Link  key = {restaurant.info.id}  to={"/restaurants/" + restaurant.info.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.info} /> </Link>)
+           
+           filteredRestraurant.map((restaurant) =>
+           <Link  key = {restaurant.info.id}  to={"/restaurants/" + restaurant.info.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.info} /> </Link>)
           //2nd method to map and pass data dynamically
           // restaurantList.map((restaurant) => <RestraurantCard resData = {restaurant} />)
          }
+
+          
+          {/* {
+          restaurant.data.promoted? <RestaurantCardPromoted /> : <RestraurantCard {...restaurant.info} />  // Condition for rendering the restaurantcard with promted label...
+         }  */}
        </div>
       </div>
     )

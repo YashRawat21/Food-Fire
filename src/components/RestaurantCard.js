@@ -20,4 +20,17 @@ const RestraurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMil
       </div>
     )
   }
+   //Higher Order Component
+
+   // input - RestaurantCard output -> restaurantcardpromoted
+  // export const withPromotedLabel = (RestaurantCard) => {
+  //   return () => {
+  //     return(
+  //       <div>
+  //         <label>Promoted</label>
+  //         <RestraurantCard />
+  //       </div>
+  //     )
+  //   }
+  // }
   export default RestraurantCard;
