@@ -27,16 +27,16 @@ const Body = () => {
     return listOfRestaurant.length === 0 ? <Shimmer /> :(
       <div className = "body">
        <div className = "search">
-        <input type = "search" className = "searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
-        <button className = "searchBtn" onClick={() => {
+        <input type = "search" className = "border-solid border-black ml-4 rounded-lg" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
+        <button className = "px-4 m-4 py-1  bg-red-500 text-white rounded-lg" onClick={() => {
           const searchFilter = listOfRestaurant.filter((res) => 
            res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
            )
            setFilterRestraurant(searchFilter) 
         }}>Submit</button>
-       <i className="sort-text">Sort By:</i>
+       <i className="sort-text ml-7">Sort By:</i>
        
-       <button className = "filterBtn" onClick = {() => {
+       <button className = "filterBtn px-4 m-4 py-2 bg-red-500 text-white rounded-lg" onClick = {() => {
        const  filteredList = listOfRestaurant.filter((res) => res.info.avgRating > 4);
      setFilterRestraurant(filteredList)
       
@@ -46,7 +46,7 @@ const Body = () => {
        }}> {filterByPrice}</button>
         */}
        </div>
-       <div className = "res-container">
+       <div className = "res-container flex flex-wrap">
          {
          filteredRestraurant.map((restaurant) =>
          <Link  key = {restaurant.info.id}  to={"/restaurants/" + restaurant.info.id} className = "link" style={{textDecoration: "none" ,color: "inherit"}}> <RestraurantCard {...restaurant.info} /> </Link>)

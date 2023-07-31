@@ -1,4 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* 
 
 .header{
     display: flex;
@@ -76,9 +80,7 @@
 }
 
 .res-container{
-    /* display: flex;
-    flex-wrap: wrap;
-    gap: 40px; */
+   
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 40px;
@@ -180,7 +182,7 @@
 }
 .desc{
     color: #aaa;
-    /* font-size:px; */
+  
 }
 .menu-info{
     display: flex;
@@ -192,7 +194,7 @@ hr{
     width: 70%;
 }
 .avg-rating{
-    /* border: 1px solid black;  */
+   
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -204,4 +206,4 @@ hr{
 }
 .left-info{
     color: #aaa;
-}
+} */
