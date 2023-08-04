@@ -1,6 +1,6 @@
 import { CDN_URL } from "./utils/constants";
 
-const RestraurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMileTravelString,costForTwoString}) =>{
+const RestaurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMileTravelString,costForTwoString}) =>{
     //2nd method to destructure 
     // const {name,cuisines,area,cloudinaryImageId,avgRating,lastMileTravelString,costForTwoString} = resData?.data
     return(
@@ -33,4 +33,4 @@ const RestraurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMil
   //     )
   //   }
   // }
-  export default RestraurantCard;
+  export default RestaurantCard;
