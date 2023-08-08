@@ -1,15 +1,17 @@
 // import  {withPromotedLabel}from "./RestaurantCard";
 import { SWIGGY_API } from "./utils/constants";
-import {useEffect, useState} from "react"
+import {useContext, useEffect, useState} from "react"
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "./useOnlineStatus";
 import RestaurantCard from "./RestaurantCard";
+import UserContext from "./utils/UserContext";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]); //while filtering we need this listOfRestraurant. listOfRestrasurant contains copy of all the restraurant. we r never modifying this list of restraurant.this remaoins intact .
    const [filteredRestraurant , setFilterRestraurant] = useState([]); //List only for filtered restraurant ..so whenerver u wanna filter u should update FilterRestraurant instead of listORestraurant.
   
-   const [searchText , setSearchText] = useState(" ")
+   const [searchText , setSearchText] = useState(" ");
+   const {loggedIn,setUserName} = useContext(UserContext);
 
   //  const RestaurantCardPromoted = withPromotedLabel(RestraurantCard); // now this RestaurantcardPromoted component has promoted label inside it.
 
@@ -32,7 +34,7 @@ const Body = () => {
     return listOfRestaurant.length === 0 ? <Shimmer /> :(
       <div className = "body">
        <div className = "search">
-        <input type = "search" className = "border-solid border-black ml-4 rounded-lg" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
+        <input type = "search" className = "border border-black ml-4 rounded-lg outline-none" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
         <button className = "px-4 m-4 py-1  bg-red-500 text-white rounded-lg" onClick={() => {
           const searchFilter = listOfRestaurant.filter((res) => 
            res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
@@ -46,6 +48,8 @@ const Body = () => {
       setFilterRestraurant(filteredList)
       
        }}>Top Rated Restaurant</button>
+       <label >User</label>
+       <input className="border border-black p-2" value ={loggedIn}onChange={(e) => setUserName(e.target.value) }/>
     
        </div>
        <div className = "res-container flex flex-wrap">

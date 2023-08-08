@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { CDN_URL } from "./utils/constants";
+import UserContext from "./utils/UserContext";
 
 const RestaurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMileTravelString,costForTwoString}) =>{
     //2nd method to destructure 
     // const {name,cuisines,area,cloudinaryImageId,avgRating,lastMileTravelString,costForTwoString} = resData?.data
+   const {loggedIn} = useContext(UserContext);
     return(
       <div className = "res-card p-5 m-4 w-[400px] ml-[70px] overflow-hidden bg-gray-100 hover:bg-gray-300 max-h-[400px] rounded-lg" >
           <img className = "resImg" alt = "res-logo" src = {CDN_URL +cloudinaryImageId}/>
@@ -15,6 +18,7 @@ const RestaurantCard = ({name,cuisines,area,cloudinaryImageId,avgRating,lastMile
       
         <h4>{lastMileTravelString}</h4>
           <h4>{costForTwoString}</h4>
+          <h4>User : {loggedIn}</h4>
         </span>
         
       </div>

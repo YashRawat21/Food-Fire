@@ -7,7 +7,7 @@ import RestaurantCategory from './RestaurantCategory';
 const RestaurantMenu = () => {
      const {resId} = useParams();
      const resInfo  = useRestaurantMenu(resId)
-    
+      const [showIndex,setShowIndex] = useState(null);
     if(resInfo === null) return <Shimmer />
     const {name,cuisines,costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
    
@@ -23,8 +23,9 @@ const RestaurantMenu = () => {
       </p>
       
       {/* category accordian */}
-      {
-        category.map((category) => <RestaurantCategory data = {category?.card?.card}/>)
+      { 
+      //Restaurant category is a controlled component now..
+        category.map((category,index) => <RestaurantCategory data = {category?.card?.card} showItems={index === showIndex? true : false} setShowIndex = {() => setShowIndex(index)}/>)
       }
     </div>
         
